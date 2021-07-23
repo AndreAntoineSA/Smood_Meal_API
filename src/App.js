@@ -1,5 +1,5 @@
 
-import { Contact, Navbar, Footer, Meal } from './components'
+import { Contact, Navbar, Footer, Meal, MealDetails } from './components'
 import GlobalStyle from './globalStyles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 function App()
@@ -11,6 +11,7 @@ function App()
         <Navbar />
         <Switch>
           <Route path='/' exact component={Meal}></Route>
+          <Route path='/meal/:idMeal' exact component={MealDetails}></Route>
           <Route path='/contact' exact component={Contact}></Route>
         </Switch>
         <Footer />

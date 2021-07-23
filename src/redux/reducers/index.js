@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
-import { mealReducer } from './mealReducer'
+import { mealReducer, selectedMealReducer } from './mealReducer'
 
 const reducers = combineReducers({
-    allMeals: mealReducer
+    allMeals: mealReducer,
+    meal: selectedMealReducer
 })
 
 export default reducers

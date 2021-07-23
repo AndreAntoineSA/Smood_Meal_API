@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const MealComponent = () =>
 {
@@ -11,10 +12,14 @@ const MealComponent = () =>
         const { strMealThumb, idMeal, strMeal, strArea, strTags } = meal
         return (
             <div key={idMeal}>
-                <h4>{strMeal}</h4>
-                <p>{strArea}</p>
-                <p>{strTags}</p>
-            </div>
+                <Link to={`/meal/${idMeal}`}>
+                    <h4>{strMeal}</h4>
+                    <p>{strArea}</p>
+                    <p>{strTags}</p>
+                </Link>
+                {/* <img src={strMealThumb} ></img> */}
+
+            </div >
         )
     })
     return (

@@ -14,3 +14,10 @@ export const selectedMeal = (meal) =>
         payload: meal,
     }
 }
+
+export const removeSelectedMeal = () =>
+{
+    return {
+        type: ActionTypes.REMOVE_SELECTED_MEAL,
+    }
+}
