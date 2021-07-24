@@ -21,3 +21,12 @@ export const removeSelectedMeal = () =>
         type: ActionTypes.REMOVE_SELECTED_MEAL,
     }
 }
+
+export const setContact = (contact) =>
+{
+    return {
+        type: ActionTypes.SET_CONTACT,
+        payload: contact,
+
+    }
+}

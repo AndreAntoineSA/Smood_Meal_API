@@ -60,7 +60,7 @@ list-style: none;
 text-align: center;
 flex-direction: column;
 width:100%;
-height:90vh;
+height:100vh;
 position:absolute;
 top:80px;
 left: ${({ click }) => (click ? 0 : '-100%')};
@@ -76,6 +76,19 @@ width:100%;
 &:hover{
     border-bottom: 2px solid #4b59F7;
 }
+h1{
+    color: #fff;
+    text-overflow: none;
+}
+`
+
+
+export const NavHead = styled.h1`
+ height:80px;
+ border-bottom: 2px solid transparent;
+ width:100%;
+ color: #fff;
+ font-size: 30px;
 `
 
 export const NavLinks = styled(Link)`

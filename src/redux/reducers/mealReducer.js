@@ -14,14 +14,25 @@ export const mealReducer = (state = initialState, { type, payload }) =>
     }
 }
 
-export const selectedMealReducer = (state = {}, { type, payload }) =>
+export const selectedMealReducer = (state = { meals: [{}] }, { type, payload }) =>
 {
     switch (type)
     {
         case ActionTypes.SELECTED_MEAL:
             return { ...state, ...payload }
         case ActionTypes.REMOVE_SELECTED_MEAL:
-            return {}
+            return { meals: [{}] }
+        default:
+            return state
+    }
+}
+
+export const contactReducer = (state = { }, { type, payload }) =>
+{
+    switch (type)
+    {
+        case ActionTypes.SET_CONTACT:
+            return { ...state, ...payload }
         default:
             return state
     }

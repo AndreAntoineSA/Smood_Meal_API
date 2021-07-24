@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
 background-color: #101522;
-padding: 4rem 0 2rem 0;
+padding: 2rem 0 2rem 0;
 display: flex;
 /* bottom:0; */
 flex-direction:column;

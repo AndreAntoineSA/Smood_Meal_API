@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectedMeal, removeSelectedMeal } from '../../redux/actions/mealActions'
+
+import { Container } from '../../globalStyles'
+
 const MealDetails = () =>
 {
     const { idMeal } = useParams()
     const dispatch = useDispatch()
     const meal = useSelector((state) => state.meal)
     const { strArea, strInstructions, strMeal, strTags, strYoutube } = meal.meals[0]
-    // console.log(meal.meals[0] !== '' ? meal.meals[0] : 'empty')
     const fetchMealDetails = async () =>
     {
         // https://www.themealdb.com/api/json/v1/1/lookup.php?i=52768
@@ -29,12 +31,11 @@ const MealDetails = () =>
         }
     }, [idMeal])
     return (
-        <div>
+        <Container>
             <h1>{strMeal} Detail</h1>
             <h3>Area</h3>
             <p>{strArea}</p>
             <h3>Instructions</h3>
-            {/* const {strArea, , strMeal, strTags, strYoutube} = meal[0] */}
 
             <p>{strInstructions}</p>
             <h3>Tags</h3>
@@ -42,7 +43,7 @@ const MealDetails = () =>
             <h3>Youtube</h3>
             <p>{strYoutube}</p>
 
-        </div>
+        </Container>
     )
 }
 

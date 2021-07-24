@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaTimes, FaBars, FaLinkedin } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
-import { Nav, NavbarContainer, NavLogo, MenuIcon, NavMenu, NavItem, NavLinks, LinkedIcon } from './Navbar.elements'
+import { Nav, NavbarContainer, NavLogo, MenuIcon, NavMenu, NavHead, NavItem, NavLinks, LinkedIcon } from './Navbar.elements'
 
 const Navbar = () =>
 {
@@ -18,8 +18,9 @@ const Navbar = () =>
                 <Nav>
                     <NavbarContainer>
                         <NavLogo to="/" >
-                            Smood Meals
+                            Smood Meal API Explorer
                         </NavLogo>
+                        {/* justify flex-end */}
                         <LinkedIcon href="https://www.linkedin.com/in/andre16/" target="_blank" >
                             <FaLinkedin />
                         </LinkedIcon>
@@ -27,11 +28,12 @@ const Navbar = () =>
                             {click ? <FaTimes /> : <FaBars />}
                         </MenuIcon>
                         <NavMenu onClick={handleClick} click={click}>
+                            <NavHead>Smood</NavHead>
                             <NavItem>
                                 <NavLinks to='/' >Meals list</NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='/Contact' >Contact</NavLinks>
+                                <NavLinks to='/contact' >Contact</NavLinks>
                             </NavItem>
                         </NavMenu>
                     </NavbarContainer>

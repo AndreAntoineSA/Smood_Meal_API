@@ -1,7 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { StyledForm, StyledInput, StyledTextArea, StyledButton } from '../../globalStyles'
 
+import
+{
+    ProductsContainer,
+    ProductWrapper,
+    ProductsHeading,
+    ProductTitle,
+    ProductCard,
+    ProductImg,
+    ProductInfo,
+    ProductDesc,
+    ProductPrice,
+    ProductButton
+} from './MealComponent.element';
 const MealComponent = () =>
 {
     const meals = useSelector((state) => state.allMeals.meals.meals)
@@ -11,20 +25,31 @@ const MealComponent = () =>
     {
         const { strMealThumb, idMeal, strMeal, strArea, strTags } = meal
         return (
-            <div key={idMeal}>
-                <Link to={`/meal/${idMeal}`}>
-                    <h4>{strMeal}</h4>
-                    <p>{strArea}</p>
-                    <p>{strTags}</p>
-                </Link>
-                {/* <img src={strMealThumb} ></img> */}
+            <Link to={`/meal/${idMeal}`} style={{ textDecoration: 'none' }} >
+                <ProductCard key={idMeal}>
 
-            </div >
+                    <ProductImg src={strMealThumb} alt={strMealThumb}></ProductImg>
+                    <ProductInfo>
+                        <p>{strMeal}</p>
+                        <p>{strArea === 'Unknown' ? '' : strArea}</p>
+                        <p>{strTags}</p>
+                    </ProductInfo>
+                </ProductCard >
+
+            </Link>
+
         )
     })
     return (
         <>
-            {renderList}
+            <StyledForm>
+                <StyledInput></StyledInput>
+                <StyledButton>Search</StyledButton>
+            </StyledForm>
+           
+            <ProductWrapper>
+                {renderList}
+            </ProductWrapper>
         </>
     )
 }
