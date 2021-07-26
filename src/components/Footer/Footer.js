@@ -1,13 +1,13 @@
 import React from 'react'
-import { FooterContainer, FooterSubHeading } from './Footer.elements'
+import { FooterContainer, FooterText } from './Footer.elements'
 
 const Footer = () =>
 {
     return (
         <FooterContainer>
-            <FooterSubHeading>
-                Smood Meals © 2021
-            </FooterSubHeading>
+            <FooterText>
+                {process.env.REACT_APP_NAME} Meals © 2021
+            </FooterText>
         </FooterContainer>
     )
 }
