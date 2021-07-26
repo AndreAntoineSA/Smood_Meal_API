@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setContact } from '../../redux/actions/mealActions'
-import { ModalContainer, StyledError } from './Contact.elements'
+import { ContactContainer, StyledError } from './Contact.elements'
 import { StyledForm, StyledInput, StyledTextArea, StyledButton } from '../../globalStyles'
 import Modal from '../Modal/Modal'
 
@@ -14,13 +14,11 @@ const initialState = {
 const Contact = () =>
 {
 
-    const [contactDetails, setContactDetails] = useState(initialState)
+    const [contactDetails, setContactDetails] = useState(initialState) // Store's name, email and message for passing 
     const [errorMessage, setErrorMessage] = useState('')
     const [showModal, setShowModal] = useState(false)
 
     const dispatch = useDispatch()
-    const contact = useSelector((state) => state.contact)
-    console.log(contact)
 
     function openModal()
     {
@@ -50,32 +48,30 @@ const Contact = () =>
         setContactDetails(prev => ({ ...prev, [inputName]: value }));
     };
     return (
-        <>
-            <ModalContainer>
-                <StyledForm onSubmit={(e) => handleSubmit(e)}>
-                    <label htmlFor="name" >Name</label>
-                    <StyledInput type="name" placeholder="Name" name="name" value={contactDetails.name}
-                        onChange={handleInput}
-                    />
-                    <label htmlFor="email" >Email</label>
-                    <StyledInput type="email" placeholder="Email" name="email" value={contactDetails.email}
-                        onChange={handleInput}
-                    />
-                    <label htmlFor="message" >Message</label>
-                    <StyledTextArea type="textarea" name="message" placeholder="Message" value={contactDetails.message}
-                        onChange={handleInput}
-                    />
-                    {errorMessage && (
-                        <StyledError>
-                            <p>{errorMessage}</p>
-                        </StyledError>
-                    )}
-                    <StyledButton type="submit">Submit</StyledButton>
-                </StyledForm>
-                <Modal showModal={showModal} setShowModal={setShowModal} contactDetails={contactDetails} />
-            </ModalContainer>
-        </>
 
+        <ContactContainer>
+            <StyledForm onSubmit={(e) => handleSubmit(e)}>
+                <label htmlFor="name" >Name</label>
+                <StyledInput type="name" placeholder="Name" name="name" value={contactDetails.name}
+                    onChange={handleInput}
+                />
+                <label htmlFor="email" >Email</label>
+                <StyledInput type="email" placeholder="Email" name="email" value={contactDetails.email}
+                    onChange={handleInput}
+                />
+                <label htmlFor="message" >Message</label>
+                <StyledTextArea type="textarea" name="message" placeholder="Message" value={contactDetails.message}
+                    onChange={handleInput}
+                />
+                {errorMessage && (
+                    <StyledError>
+                        <p>{errorMessage}</p>
+                    </StyledError>
+                )}
+                <StyledButton type="submit">Submit</StyledButton>
+            </StyledForm>
+            <Modal showModal={showModal} setShowModal={setShowModal} contactDetails={contactDetails} />
+        </ContactContainer>
     )
 }
 
