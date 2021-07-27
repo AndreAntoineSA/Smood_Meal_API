@@ -1,5 +1,5 @@
 
-## Smood API Meal APP
+## Smood Meal API 
 
 It is a react app which displays various meals as a list, has ability to search for meals and on click it displays the instructions to prepare the meal.
 
