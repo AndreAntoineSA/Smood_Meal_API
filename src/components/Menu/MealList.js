@@ -7,17 +7,18 @@ import { Container } from "./MealComponent.element"
 
 const MealList = () => {
   const dispatch = useDispatch()
-  const fetchMeals = async () => {
-    const response = await axios
-      .get("https://www.themealdb.com/api/json/v1/1/search.php?f=c")
-      .catch(err => {
-        console.log("Err", err)
-      })
-    dispatch(setMeals(response.data))
-  }
   useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await axios
+        .get("https://www.themealdb.com/api/json/v1/1/search.php?f=c")
+        .catch(err => {
+          console.log("Err", err)
+        })
+      dispatch(setMeals(response.data))
+    }
     fetchMeals()
-  }, [])
+  }, [dispatch])
+
   return (
     <Container>
       <MealComponent />

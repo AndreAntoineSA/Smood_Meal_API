@@ -27,21 +27,22 @@ const MealDetails = () => {
     strYoutube,
     strMealThumb,
   } = meal.meals[0]
-  const fetchMealDetails = async () => {
-    const response = await axios
-      .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
-      .catch(err => {
-        console.log(err)
-      })
-    dispatch(selectedMeal(response.data))
-  }
 
   useEffect(() => {
+    const fetchMealDetails = async () => {
+      const response = await axios
+        .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
+        .catch(err => {
+          console.log(err)
+        })
+      dispatch(selectedMeal(response.data))
+    }
     fetchMealDetails()
     return () => {
       dispatch(removeSelectedMeal())
     }
-  }, [idMeal])
+  }, [dispatch, idMeal])
+  
   return (
     <MealContainer>
       <MealHeading>{strMeal} Detail</MealHeading>
