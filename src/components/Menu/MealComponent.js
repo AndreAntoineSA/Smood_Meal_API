@@ -11,10 +11,10 @@ import {
   SearchInput,
   SearchButton,
   SearchErrorMessage,
-  ProductWrapper,
-  ProductCard,
-  ProductImg,
-  ProductInfo,
+  MenuWrapper,
+  MenuCard,
+  MenuImg,
+  MenuInfo,
   Sort,
 } from "./MealComponent.element"
 
@@ -50,17 +50,17 @@ const MealComponent = () => {
         style={{ textDecoration: "none" }}
         key={idMeal}
       >
-        <ProductCard>
-          <ProductImg src={strMealThumb} alt={strMealThumb}></ProductImg>
-          <ProductInfo>
+        <MenuCard>
+          <MenuImg src={strMealThumb} alt={strMealThumb}></MenuImg>
+          <MenuInfo>
             <h4>{strMeal}</h4>
             <div>
               <p>{strArea === "Unknown" ? "" : strArea}</p>
               <p>{strTags}</p>
               <p>Total ingredients : {totalIngredient}</p>
             </div>
-          </ProductInfo>
-        </ProductCard>
+          </MenuInfo>
+        </MenuCard>
       </Link>
     )
   })
@@ -126,7 +126,7 @@ const MealComponent = () => {
         </SearchErrorMessage>
       )}
 
-      <ProductWrapper>{renderList}</ProductWrapper>
+      <MenuWrapper>{renderList}</MenuWrapper>
     </>
   )
 }
