@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { BiSort } from "react-icons/bi"
@@ -26,16 +26,6 @@ const MealComponent = () => {
   const [errorMessage, setErrorMessage] = useState("")
 
   const meals = useSelector(state => state.allMeals.meals)
-  //   useEffect(() => {
-  //     // if (sort) {
-  //     //   console.log(sort)
-  //     //  meals.reverse()
-  //     // } else {
-  //     //   console.log(sort)
-  //     // }
-  //     //   meals.reverse()
-  //     handleSort(meals)
-  //   }, [sort])
 
   const handleSort = meals => {
     return meals.reverse()
@@ -55,9 +45,9 @@ const MealComponent = () => {
           <MenuInfo>
             <h4>{strMeal}</h4>
             <div>
-              <p>{strArea === "Unknown" ? "" : strArea}</p>
-              <p>{strTags}</p>
+              <p>{strArea === "Unknown" ? "" : `Origin: ${strArea}`}</p>
               <p>Total ingredients : {totalIngredient}</p>
+              <p className="tags">{strTags}</p>
             </div>
           </MenuInfo>
         </MenuCard>
@@ -106,7 +96,7 @@ const MealComponent = () => {
           />
           <SearchButton type="submit">Search</SearchButton>
         </SearchFormWrapper>
-
+        {/* Sort's the Menu Display in ascending or descending */}
         <Sort>
           <SearchButton
             onClick={() => {
@@ -120,12 +110,13 @@ const MealComponent = () => {
           </SearchButton>
         </Sort>
       </SearchForm>
+      {/* Display's error message when result for search is not found */}
       {errorMessage && (
         <SearchErrorMessage>
           <p>{errorMessage}</p>
         </SearchErrorMessage>
       )}
-
+      {/* Wrapper displays all the menu items */}
       <MenuWrapper>{renderList}</MenuWrapper>
     </>
   )

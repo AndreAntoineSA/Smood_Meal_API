@@ -164,7 +164,6 @@ export const MealHeading = styled.h1`
   margin: 2rem;
 `
 
-
 export const MenuInfo = styled.div`
   display: flex;
   text-decoration: none;
@@ -173,7 +172,12 @@ export const MenuInfo = styled.div`
   align-items: center;
   padding: 1rem;
   text-align: center;
-  h4,p {
+  h4,
+  p {
     color: #101522;
+  }
+  .tags {
+    font-style: italic;
+    color: #a9a9a9;
   }
 `
